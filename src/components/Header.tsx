@@ -20,7 +20,7 @@ export const Header = (): ReactElement => {
         <Link href="/" passHref>
           <ChevronLeftIcon
             position="absolute"
-            left="10"
+            left={['2', '10']}
             _hover={{ cursor: 'pointer' }}
             fontSize="3xl"
           />

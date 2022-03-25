@@ -7,25 +7,26 @@ export const Hero = (): ReactElement => {
       backgroundImage="/images/Background.png"
       bgSize="cover"
       w="100%"
-      h={335}
+      h={[170, 335]}
+      mb={[8, 0]}
     >
       <Flex flex="1" align="center" justify="center" direction="column">
-        <VStack maxW={500}>
+        <VStack maxW={[355, 500]} px={['8', '0']}>
           <Text
-            fontSize="4xl"
+            fontSize={['xl', '2xl', '4xl']}
             color="white.heading"
             fontWeight="bold"
             alignSelf="flex-start"
           >
-            7 Continentes,
+            5 Continentes,
             <br /> infinitas possibilidades.
           </Text>
-          <Text fontSize="2xl" color="white.heading">
+          <Text fontSize={['0.9rem', '1xl', '2xl']} color="white.heading">
             Chegou a hora de tirar do papel a viagem que você sempre sonhou.
           </Text>
         </VStack>
       </Flex>
-      <Flex flex="1" justify="center" align="center">
+      <Flex display={['none', 'flex']} flex="1" justify="center" align="center">
         <Image src="/images/Airplane.svg" alt="Airplane" mb="-28" />
       </Flex>
     </Flex>

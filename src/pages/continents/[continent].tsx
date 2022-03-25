@@ -47,26 +47,32 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
       <Flex
         as="header"
         w="100%"
-        h={500}
+        h={[150, 500]}
         bgImage={`url(${image}) `}
         bgSize="cover"
         bgPos="center"
-        px="40"
-        py="20"
-        align="flex-end"
+        py={[0, '20']}
+        px={[0, '40']}
+        align={['center', 'flex-end']}
       >
         <Text
-          fontSize="6xl"
+          fontSize={['3xl', '6xl']}
           fontWeight="bold"
           color="white.heading"
           textAlign="left"
+          mx={['auto', '0']}
         >
           {name}
         </Text>
       </Flex>
-      <Flex w="100%" px="40" py="20">
+      <Flex flexDir={['column', 'row']} w="100%" px={['5', '40']} py="20">
         <Box flex={1}>
-          <Text fontSize="2xl" fontWeight="bold" color="gray.600" maxW={560}>
+          <Text
+            fontSize={['1xl', '2xl']}
+            fontWeight={['normal', 'bold']}
+            color="gray.600"
+            maxW={560}
+          >
             A Europa é, por convenção, um dos seis continentes do mundo.
             Compreendendo a península ocidental da Eurásia, a Europa geralmente
             divide-se da Ásia a lesta pela divisórias de águas dos montes Urais,
@@ -74,8 +80,9 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
           </Text>
         </Box>
         <SimpleGrid
+          mt={['8', 0]}
           flex={1}
-          spacing="4"
+          spacing={['1', '4']}
           columns={3}
           justifyContent="center"
           alignItems="center"
@@ -86,10 +93,18 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize="5xl" color="yellow.400" fontWeight="bold">
+            <Text
+              fontSize={['2xl', '5xl']}
+              color="yellow.400"
+              fontWeight="bold"
+            >
               {Countries}
             </Text>
-            <Text fontSize="3xl" color="gray.heading" fontWeight="bold">
+            <Text
+              fontSize={['1xl, 3xl']}
+              color="gray.heading"
+              fontWeight="bold"
+            >
               Países
             </Text>
           </Box>
@@ -99,10 +114,18 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize="5xl" color="yellow.400" fontWeight="bold">
+            <Text
+              fontSize={['2xl', '5xl']}
+              color="yellow.400"
+              fontWeight="bold"
+            >
               {SpokenLanguages}
             </Text>
-            <Text fontSize="3xl" color="gray.heading" fontWeight="bold">
+            <Text
+              fontSize={['1xl, 3xl']}
+              color="gray.heading"
+              fontWeight="bold"
+            >
               Línguas
             </Text>
           </Box>
@@ -112,13 +135,17 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize="5xl" color="yellow.400" fontWeight="bold">
+            <Text
+              fontSize={['2xl', '5xl']}
+              color="yellow.400"
+              fontWeight="bold"
+            >
               {HCitiesCount}
             </Text>
             <Text
               display="flex"
               alignItems="center"
-              fontSize="3xl"
+              fontSize={['1xl, 3xl']}
               color="gray.heading"
               fontWeight="bold"
             >
@@ -127,7 +154,7 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
                 label="Cidades +100 são as 100 cidades mais visitadas do mundo"
                 fontSize="md"
               >
-                <Flex as="span">
+                <Flex display={['none', 'flex']} as="span">
                   <Icon
                     _hover={{ cursor: 'pointer' }}
                     as={AiOutlineInfoCircle}
@@ -141,7 +168,7 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
           </Box>
         </SimpleGrid>
       </Flex>
-      <Flex w="100%" px="40" py="20" flexDir="column">
+      <Flex w="100%" px={['5', '40']} py={['2', '20']} flexDir="column">
         <Text
           fontSize="4xl"
           fontWeight="bold"

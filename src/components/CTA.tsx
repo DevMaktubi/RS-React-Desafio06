@@ -11,10 +11,10 @@ export const CTA = (): ReactElement => {
       h="100"
       py="4"
     >
-      <Text fontSize="5xl" fontWeight="medium" color="gray.heading">
+      <Text fontSize={['3xl', '5xl']} fontWeight="medium" color="gray.heading">
         Vamos nessa?
       </Text>
-      <Text fontSize="5xl" fontWeight="medium" color="gray.heading">
+      <Text fontSize={['3xl', '5xl']} fontWeight="medium" color="gray.heading">
         Então escolha seu continente
       </Text>
     </Flex>

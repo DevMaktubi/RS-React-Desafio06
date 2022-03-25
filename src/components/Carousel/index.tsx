@@ -29,7 +29,7 @@ export const Carousel = (): ReactElement => {
     getData();
   }, []);
   return (
-    <Flex w={[1240]} mx="auto" mt="20" mb="16">
+    <Flex w={['100%', 1240]} mx="auto" mt="20" mb="16">
       <Swiper
         navigation
         modules={[Navigation, Pagination]}
