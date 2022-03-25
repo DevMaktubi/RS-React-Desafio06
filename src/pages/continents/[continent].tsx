@@ -1,9 +1,17 @@
-import { Box, Flex, Icon, SimpleGrid, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Icon,
+  Image,
+  SimpleGrid,
+  Text,
+  Tooltip,
+} from '@chakra-ui/react';
 import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import { ReactElement } from 'react';
 
-import { FaInfoCircle } from 'react-icons/fa';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 interface HCitiesData {
   name: string;
@@ -115,9 +123,93 @@ const Continent = ({ continent }: ContinentProps): ReactElement => {
               fontWeight="bold"
             >
               cidades +100{' '}
-              <Icon as={FaInfoCircle} size="1.5em" color="gray.info" ml="2" />
+              <Tooltip
+                label="Cidades +100 são as 100 cidades mais visitadas do mundo"
+                fontSize="md"
+              >
+                <Flex as="span">
+                  <Icon
+                    _hover={{ cursor: 'pointer' }}
+                    as={AiOutlineInfoCircle}
+                    size="1.5em"
+                    color="gray.info"
+                    ml="2"
+                  />
+                </Flex>
+              </Tooltip>
             </Text>
           </Box>
+        </SimpleGrid>
+      </Flex>
+      <Flex w="100%" px="40" py="20" flexDir="column">
+        <Text
+          fontSize="4xl"
+          fontWeight="bold"
+          color="gray.heading"
+          alignSelf="flex-start"
+          py="6"
+        >
+          Cidades +100
+        </Text>
+        <SimpleGrid spacing={[4, 8]} columns={[1, 2, 4]}>
+          {HCitiesExample.map((city, index) => (
+            <Box
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              display="flex"
+              flexDir="column"
+              alignItems="center"
+            >
+              <Image
+                w="100%"
+                borderTopRadius="8px"
+                h={200}
+                src={city.image}
+                alt={city.name}
+                zIndex={-2}
+              />
+              <Flex
+                bg="whiteAlpha"
+                w="100%"
+                px="6"
+                py="4"
+                justify="center"
+                align="center"
+                border="1px"
+                borderTop="0px"
+                borderColor="yellow.300"
+                borderBottomRadius="8px"
+              >
+                <Box
+                  display="flex"
+                  flexDir="column"
+                  justifyContent="flex-start"
+                >
+                  <Text fontSize="2xl" fontWeight="bold" color="gray.heading">
+                    {city.name}
+                  </Text>
+                  <Text fontSize="1xl" fontWeight="bold" color="gray.400">
+                    {city.country}
+                  </Text>
+                </Box>
+                <Flex ml="auto">
+                  <Image
+                    borderRadius="50%"
+                    w="50px"
+                    h="50px"
+                    justifyContent="center"
+                    alignItems="center"
+                    objectFit="cover"
+                    objectPosition="center"
+                    border="1px"
+                    borderColor="gray.200"
+                    src={city.flag}
+                    alt={city.name}
+                  />
+                </Flex>
+              </Flex>
+            </Box>
+          ))}
         </SimpleGrid>
       </Flex>
     </Flex>
@@ -136,6 +228,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     props: {
       continent: response.data,
     },
+    redirect: 60 * 60, // 1 Hour
   };
 };
 
