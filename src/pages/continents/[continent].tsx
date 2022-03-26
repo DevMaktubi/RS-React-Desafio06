@@ -249,7 +249,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { continent } = params;
   const response = await axios.get(
-    `https://world-trip-jade.vercel.app/continents/${continent}`
+    `https://world-trip-jade.vercel.app/api/continents/${continent}`
   );
   return {
     props: {
