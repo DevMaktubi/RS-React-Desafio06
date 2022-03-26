@@ -8,6 +8,8 @@ interface Continent {
 }
 
 export const getContinents = async (): Promise<Continent[]> => {
-  const response = await axios.get('http://localhost:3000/api/continents');
+  const response = await axios.get(
+    'https://world-trip-jade.vercel.app/api/continents'
+  );
   return response.data;
 };
